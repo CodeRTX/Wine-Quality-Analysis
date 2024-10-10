@@ -22,7 +22,7 @@ The output variable is quality, scored between 0 and 10 based on sensory data.
 
 ## Contents
 
-- `Wine_Quality_Analysis.ipynb`: Jupyter Notebook containing the analysis and machine learning models.
+- `Wine_Quality.ipynb`: Jupyter Notebook containing the analysis and machine learning models.
 - `data/wine-quality.csv`: The dataset used for the analysis.
 - `models/model.json`: Saved model architecture in JSON format.
 - `models/model.joblib`: Saved trained model.

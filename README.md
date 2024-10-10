@@ -26,7 +26,7 @@ The output variable is quality, scored between 0 and 10 based on sensory data.
 - `data/wine-quality.csv`: The dataset used for the analysis.
 - `models/model.json`: Saved model architecture in JSON format.
 - `models/model.joblib`: Saved trained model.
-- `images/data_scientist_analyzing_wine.webp`: An image representing a data scientist analyzing wine quality data.
+- `images/model_arch.JPG`: The archtecture of the deep learning model.
 
 ## Contributing
 
@@ -34,4 +34,4 @@ Feel free to contribute to this repository by opening issues or pull requests.
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the Apache License - Version 2.0

@@ -1,7 +1,7 @@
 # Wine Quality Analysis
 
-This repository contains an analysis of the physicochemical properties and sensory quality scores of Portuguese "Vinho Verde" wine, combining both red and white variants. The goal is to predict wine quality based on its physicochemical properties using machine learning models.
-<img src="images/wine-glass-flat.ico" alt="Wine Icon" width="50" height="50">
+This repository contains an analysis of the physicochemical properties and sensory quality scores of Portuguese "Vinho Verde" wine, combining both red and white variants. The goal is to predict wine quality based on its physicochemical properties using machine learning models.<br>
+<img src="images/wine-glass-flat.ico" alt="Wine Icon" width="15" height="15" >
 
 ## Dataset Description
 

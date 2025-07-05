@@ -33,4 +33,4 @@ Feel free to contribute to this repository by opening issues or pull requests.
 
 ## License
 
-This project is licensed under the Apache License - Version 2.0
+This project is licensed under the [Apache License - Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).

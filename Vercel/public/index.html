@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wine Quality Predictor</title>
+  <style>
+    /* Page Reset & Fonts */
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif; }
+    body {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f8f0e3, #fde8e0);
+      padding: 20px;
+    }
+    .container {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      max-width: 480px;
+      width: 100%;
+      padding: 32px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .container:hover { transform: translateY(-4px); }
+    h1 {
+      margin-bottom: 24px;
+      font-size: 1.8rem;
+      color: #333;
+    }
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    label {
+      display: flex; flex-direction: column;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    input {
+      margin-top: 6px;
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus { border-color: #ff6f61; }
+    button {
+      grid-column: span 2;
+      margin-top: 16px;
+      padding: 12px;
+      background: #ff6f61;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover { background: #e85b50; }
+    #result {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #333;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    #result.visible { opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Wine Quality Predictor</h1>
+    <form id="predict-form">
+      <!-- 11 inputs -->
+      <label>Fixed Acidity<input type="number" step="0.01" name="fixed_acidity" required></label>
+      <label>Volatile Acidity<input type="number" step="0.01" name="volatile_acidity" required></label>
+      <label>Citric Acid<input type="number" step="0.01" name="citric_acid" required></label>
+      <label>Residual Sugar<input type="number" step="0.01" name="residual_sugar" required></label>
+      <label>Chlorides<input type="number" step="0.0001" name="chlorides" required></label>
+      <label>Free SO₂<input type="number" step="0.1" name="free_sulfur_dioxide" required></label>
+      <label>Total SO₂<input type="number" step="0.1" name="total_sulfur_dioxide" required></label>
+      <label>Density<input type="number" step="0.00001" name="density" required></label>
+      <label>pH<input type="number" step="0.01" name="pH" required></label>
+      <label>Sulphates<input type="number" step="0.01" name="sulphates" required></label>
+      <label>Alcohol<input type="number" step="0.1" name="alcohol" required></label>
+      <button type="submit">Predict Quality</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('predict-form');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      resultDiv.classList.remove('visible');
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      try {
+        const res = await fetch('/api/predict', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const { quality } = await res.json();
+        resultDiv.textContent = `Predicted Quality: ${quality.toFixed(2)}`;
+        resultDiv.classList.add('visible');
+      } catch (err) {
+        resultDiv.textContent = 'Error – please try again.';
+        resultDiv.classList.add('visible');
+      }
+    });
+  </script>
+</body>
+</html>

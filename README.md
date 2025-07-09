@@ -4,7 +4,7 @@ This repository contains an analysis of the physicochemical properties and senso
 
 ## Dataset Description
 
-The dataset includes 11 input variables:
+The dataset includes 12 input variables:
 - Fixed acidity (g/dm³)
 - Volatile acidity (g/dm³)
 - Citric acid (g/dm³)
@@ -16,8 +16,9 @@ The dataset includes 11 input variables:
 - pH
 - Sulphates (g/dm³)
 - Alcohol (% by volume)
+- Type (red or white)
 
-The output variable is quality, scored between 0 and 10 based on sensory data.
+The output variable is **quality**, scored between 0 and 10 based on sensory data. (both inclusive)
 
 ## Contents
 
